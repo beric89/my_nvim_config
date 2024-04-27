@@ -1,0 +1,12 @@
+require("mberic.plugins-setup")
+require("mberic.core.options")
+require("mberic.core.keymaps")
+require("mberic.core.colorscheme")
+require("mberic.plugins.comment")
+require("mberic.plugins.nvim-tree")
+require("mberic.plugins.lualine")
+require("mberic.plugins.telescope")
+require("mberic.plugins.nvim-cmp")
+--require("mberic.plugins.lsp.mason") TODO: delete commented files
+--require("mberic.plugins.lsp.lspsaga")
+--require("mberic.plugins.lsp.lspconfig")
