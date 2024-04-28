@@ -93,17 +93,21 @@ return packer.startup(function(use)
         }
     }
 
-    ---- managing and installing lsp servers
-    --use("williamboman/mason.nvim")
-    --use("williamboman/mason-lspconfig.nvim")
+    -- Debugger setups
+    -- use('puremourning/vimspector') -- for debugging
+    use("mfussenegger/nvim-dap")
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
+    use("mfussenegger/nvim-dap-python")
 
-    ---- configuring lsp servers
-    --use("neovim/nvim-lspconfig")
-    --use("hrsh7th/cmp-nvim-lsp")
-    --use({ "glepnir/lspsaga.nvim", branch = "main" })
-    --use("onsails/lspkind.nvim") -- adds VS code like icons to autocompletion
+    -- Harpoon
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { {"nvim-lua/plenary.nvim"} }
+    }
 
     if packer_bootstrap then
         require("packer").sync()
     end
 end)
+
