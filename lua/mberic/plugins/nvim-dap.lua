@@ -79,14 +79,29 @@ dap_python.setup("~/.virtualenvs/debugpy/bin/python")
 --    program = "${file}",
 --})
 
-local keymap = vim.keymap
-keymap.set("n", "<leader>db", ":lua require('dap').toggle_breakpoint()<CR>")
-keymap.set("n", "<leader>dc", ":lua require('dap').continue()<CR>")
-keymap.set("n", "<leader>de", ":lua require('dapui').toggle()<CR>")
-keymap.set("n", "<leader>dso", ":lua require('dapui').step_over()<CR>")
-keymap.set("n", "<leader>dsi", ":lua require('dapui').step_into()<CR>")
-keymap.set("n", "<leader>di", ":lua require('dapui').repl.open()<CR>")
 
+vim.api.nvim_set_hl(0, 'DapBreakpoint', { ctermbg = 0, fg = '#993939', bg = '#31353f' })
+vim.api.nvim_set_hl(0, 'DapLogPoint', { ctermbg = 0, fg = '#61afef', bg = '#31353f' })
+vim.api.nvim_set_hl(0, 'DapStopped', { ctermbg = 0, fg = '#98c379', bg = '#31353f' })
+
+vim.fn.sign_define('DapBreakpoint', { text='🛑', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
+vim.fn.sign_define('DapBreakpointRejected', { text='', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl= 'DapBreakpoint' })
+vim.fn.sign_define('DapLogPoint', { text='', texthl='DapLogPoint', linehl='DapLogPoint', numhl= 'DapLogPoint' })
+vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', linehl='DapStopped', numhl= 'DapStopped' })
+
+local dap, dapui = require("dap"), require("dapui")
+dap.listeners.before.attach.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+  dapui.close()
+end
 --dap.setup({
 --    config = function()
 --        dap.listeners.before.attach.dapui_config = function()
@@ -124,6 +139,3 @@ keymap.set("n", "<leader>di", ":lua require('dapui').repl.open()<CR>")
 --dap.setup()
 --
 --
-
-
-

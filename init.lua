@@ -1,7 +1,7 @@
 require("mberic.plugins-setup")
 require("mberic.core.options")
-require("mberic.core.keymaps")
 require("mberic.core.colorscheme")
+require("mberic.core.keymaps")
 require("mberic.plugins.comment")
 require("mberic.plugins.nvim-tree")
 require("mberic.plugins.lualine")
