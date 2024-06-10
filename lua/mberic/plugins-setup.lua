@@ -94,7 +94,7 @@ return packer.startup(function(use)
     }
 
     -- Debugger setups
-    -- use('puremourning/vimspector') -- for debugging
+    -- for debugging
     use("mfussenegger/nvim-dap")
     use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
     use("mfussenegger/nvim-dap-python")
@@ -105,6 +105,16 @@ return packer.startup(function(use)
         branch = "harpoon2",
         requires = { {"nvim-lua/plenary.nvim"} }
     }
+
+    -- Window resizer
+    use("simeji/winresizer")
+    vim.g.winresizer_enable = 1
+
+    -- Git 
+    use("lewis6991/gitsigns.nvim")
+
+    -- Enable tab names
+    vim.g.showtabline = 2
 
     if packer_bootstrap then
         require("packer").sync()

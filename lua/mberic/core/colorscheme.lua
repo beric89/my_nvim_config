@@ -10,3 +10,5 @@ if not status then
     print("Colorscheme not found!")
     return
 end
+
+vim.cmd([[ highlight MatchParen guifg=Yellow guibg=Black]])
