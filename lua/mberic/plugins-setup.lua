@@ -99,6 +99,9 @@ return packer.startup(function(use)
     use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
     use("mfussenegger/nvim-dap-python")
 
+    -- Python syntax highlighting
+    use("wookayin/semshi")
+
     -- Harpoon
     use {
         "ThePrimeagen/harpoon",
