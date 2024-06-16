@@ -23,8 +23,6 @@ if not status then
     return
 end
 
--- 
-
 return packer.startup(function(use)
     use("wbthomason/packer.nvim")
 
@@ -56,8 +54,18 @@ return packer.startup(function(use)
     use("nvim-lualine/lualine.nvim")
 
     -- fuzzy finding
-    use({"nvim-telescope/telescope-fzf-native.nvim", run = "make"})
-    use({"nvim-telescope/telescope.nvim", branch = "0.1.x"})
+    use({
+        "nvim-telescope/telescope.nvim",
+        branch = "0.1.x",
+        requires = {
+            {"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
+            {"aaronhallaert/advanced-git-search.nvim"},
+            {"nvim-telescope/telescope-live-grep-args.nvim"},
+            {"AckslD/nvim-neoclip.lua",
+                {'kkharji/sqlite.lua', module = 'sqlite'},
+            },
+        },
+        })
 
     -- autocompletion
     use("hrsh7th/nvim-cmp")
@@ -116,6 +124,10 @@ return packer.startup(function(use)
     -- Git 
     use("lewis6991/gitsigns.nvim")
     use("tpope/vim-fugitive")
+    use {
+        "NeogitOrg/neogit",
+        requires="sindrets/diffview.nvim",
+    }
 
     use("nvim-treesitter/nvim-treesitter-context")
 

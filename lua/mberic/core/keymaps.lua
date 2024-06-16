@@ -53,14 +53,6 @@ keymap.set("n", "<leader>wm", ":MaximizerToggle<CR>")
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
--- telescope
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
-
-keymap.set("n", "<leader>fc", "<cmd>Telescope resume<CR>")
-keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>")
-keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>")
-
 keymap.set("n", "gd", "lua vim.lsp.buf.definition()<CR>")
 
 -- debugger
@@ -69,4 +61,5 @@ keymap.set("n", "<leader>dc", ":lua require('dap').continue()<CR>")
 keymap.set("n", "<leader>de", ":lua require('dapui').toggle()<CR>")
 keymap.set("n", "<leader>dso", ":lua require('dapui').step_over()<CR>")
 keymap.set("n", "<leader>dsi", ":lua require('dapui').step_into()<CR>")
+keymap.set("n", "<leader>dx", ":lua require('dap').clear_breakpoints()")
 

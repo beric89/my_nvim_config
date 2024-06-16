@@ -38,3 +38,4 @@ opt.splitbelow = true
 
 opt.iskeyword:append("-")
 
+opt.showtabline = 2
