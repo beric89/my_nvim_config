@@ -65,7 +65,20 @@ return packer.startup(function(use)
                 {'kkharji/sqlite.lua', module = 'sqlite'},
             },
         },
-        })
+    })
+
+    use({
+        "folke/noice.nvim",
+         opts = {
+           -- add any options here
+         },
+         requires = {
+           "MunifTanjim/nui.nvim",
+           --   `nvim-notify` is only needed, if you want to use the notification view.
+           --   If not available, we use `mini` as the fallback
+           "rcarriga/nvim-notify",
+           }
+    })
 
     -- autocompletion
     use("hrsh7th/nvim-cmp")
